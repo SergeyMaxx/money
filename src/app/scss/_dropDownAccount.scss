@@ -1,0 +1,50 @@
+.add-btn-acc {
+  font-family: 'Segoe UI', serif;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dropdown-acc{
+  position: relative;
+  min-width: 50px;
+  height: 40px;
+  color: #fff;
+  &-link {
+    color: #fff;
+  }
+}
+
+.menu-acc {
+  position: absolute;
+  right: 0;
+  top: 35px;
+  display: block;
+  min-width: 150px;
+  padding: 5px;
+  background: #525371;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  color: #fff;
+  opacity: 0;
+  transform-origin: top;
+  transform: scale(1, 0);
+  z-index: 1;
+  transition: all ease-out 0.2s;
+}
+
+.menu-open-acc {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+
+.menu-acc li {
+  padding: 0 10px;
+  font-family: 'Luckiest Guy', serif;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    background: #37384b;
+  }
+}

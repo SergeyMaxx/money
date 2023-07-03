@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
 @import "reset";
 @import "progressBar";
-@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import "addModal";
+@import "dropDown";
+@import "dropDownAccount";
 
 $money-color: #f3eca8;
 $main-bg: #545571;
@@ -24,10 +27,14 @@ $bar-4: #ba9946;
   justify-content: center;
 }
 
+body {
+  background: #525371;
+}
+
 .main-page {
   display: flex;
-  width: 100%;
-  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
   background: $main-bg;
 }
 
@@ -41,8 +48,8 @@ $bar-4: #ba9946;
     height: 104px;
     background: $money-color;
     font-size: 64px;
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
     font-family: 'Luckiest Guy', serif;
   }
 }
@@ -61,8 +68,8 @@ $bar-4: #ba9946;
     width: 104px;
     height: 182px;
     background: $money-color;
-    border-bottom-right-radius: 50px;
-    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
   }
   &__settings {
     height: 40px;
@@ -76,7 +83,7 @@ $bar-4: #ba9946;
   gap: 17px;
   //max-width: 1816px;
   width: 1273px;
-  min-height: 857px;
+  height: 857px;
   padding: 20px;
   background: $body-bg;
 }
@@ -96,9 +103,10 @@ $bar-4: #ba9946;
   border: 1px solid $black;
   border-radius: 10px;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.2s;
   &:hover {
     background: $money-color;
+    box-shadow: inset 0 0 2px 5px $black;
   }
 }
 
@@ -140,7 +148,8 @@ $bar-4: #ba9946;
       width: 315px;
       height: 24px;
       background: $green;
-    }&__plan {
+    }
+    &__plan {
       width: 265px;
       height: 24px;
       background: $green-light;
@@ -164,7 +173,7 @@ $bar-4: #ba9946;
         margin-right: 25px;
       }
       &-value {
-        margin-left: auto;
+        margin: 0 10px 0 auto;
       }
     }
   }
@@ -185,6 +194,12 @@ $bar-4: #ba9946;
   &-detail {
     font-size: 20px;
     color: $plan;
+    transition: all 0.3s;
+    cursor: pointer;
+    &:hover {
+      color: $black;
+      font-weight: 900;
+    }
   }
   &-list {
     display: flex;
@@ -221,4 +236,91 @@ $bar-4: #ba9946;
       }
     }
   }
+}
+
+.operation {
+  width: 509px;
+  height: 857px;
+  padding: 20px;
+  background: $body-bg;
+  margin-left: 17px;
+  &-list {
+    background: $table-item-bg;
+    height: 815px;
+    &__item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 30px;
+      font-weight: 800;
+      color: $green-dark;
+      padding: 5px 15px;
+      border-bottom: 1px solid #838383;
+      font-family: "Segoe UI", Arial, serif;
+      text-shadow: 1px 1px 1px #032603;
+      &.ex {
+        color: $red;
+        text-shadow: 1px 1px 1px #4b0303;
+      }
+      &_description {
+        color: $black;
+        font-weight: normal;
+        text-shadow: none;
+      }
+    }
+  }
+}
+
+.income {
+  display: flex;
+  margin: 104px 0 0 104px;
+  &-container {
+    width: 1273px;
+    height: 857px;
+    background: $table-item-bg;
+    border: 20px solid $body-bg;
+    padding: 50px;
+  }
+  &-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    &__item {
+      font-size: 30px;
+      font-weight: 900;
+      font-family: 'Luckiest Guy', serif;
+      cursor: pointer;
+      &.big {
+        font-size: 60px;
+        cursor: text;
+      }
+    }
+  }
+  &-grid {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 60px;
+    row-gap: 23px;
+    padding: 23px 36px 50px;
+    &-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 107px;
+    }
+    &__item {
+      width: 80px;
+      height: 80px;
+      border: 2px solid $black;
+      border-radius: 50%;
+      cursor: pointer;
+      &-name {
+        font-size: 20px;
+        font-family: "Segoe UI", serif;
+      }
+    }
+  }
+}
+
+.cursor-none {
+  cursor: none;
 }

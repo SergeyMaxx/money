@@ -1,13 +1,13 @@
 import React from 'react'
 import ExpensesIncome from './expensesIncome'
-import Accounts from './accounts'
+import AccountsList from './accountsList'
 import Structure from './structure'
 
 const MainPageTable = () => {
   return (
     <div className="table">
       <ExpensesIncome/>
-      <Accounts/>
+      <AccountsList/>
       <Structure/>
       <Structure/>
     </div>

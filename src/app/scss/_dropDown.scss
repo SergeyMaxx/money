@@ -1,0 +1,46 @@
+.dropdown {
+  position: relative;
+  min-width: 50px;
+  &-link {
+    color: #fff;
+  }
+}
+
+.menu {
+  position: absolute;
+  right: -20px;
+  top: 50px;
+  display: block;
+  width: 240px;
+  padding: 0.2em 0.5em;
+  background: #323741;
+  border: 1px solid #363a43;
+  border-radius: 0.5em;
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+  color: #fff;
+  opacity: 0;
+  transform-origin: top;
+  transform: scale(1, 0);
+  z-index: 1;
+  transition: all ease-out 0.2s;
+}
+
+.menu-open {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+
+.menu li {
+  margin: 0.3em 0;
+  padding-left: 10px;
+  font-family: 'Luckiest Guy', serif;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    background: #000;
+  }
+}
+
+.active {
+  background: #23242a;
+}

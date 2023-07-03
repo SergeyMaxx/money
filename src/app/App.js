@@ -1,18 +1,15 @@
 import React from 'react'
 import {Redirect, Route, Switch} from 'react-router-dom'
-import Login from './layouts/login'
-import Register from './layouts/register'
-import Main from './layouts/main'
 import MainPage from './layouts/mainPage'
 import './scss/main.scss'
+import OperationType from './components/operationType'
 
 function App() {
   return (
     <>
       <Switch>
-        <Route path={'/mainPage'} component={MainPage}/>
-        <Route path={'/login'} component={Login}/>
-        <Route path={'/signUp'} component={Register}/>
+        <Route path={'/income'} component={OperationType}/>
+        <Route path={'/expense'} component={OperationType}/>
         <Route path={'/'} exact component={MainPage}/>
         <Redirect to={'/'}/>
       </Switch>

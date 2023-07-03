@@ -152,16 +152,324 @@ h1 {
     stroke-dashoffset: 126px;
   }
 }
+.modal {
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s;
+  z-index: 1;
+}
+
+.modal-active {
+  opacity: 1;
+  pointer-events: all;
+  z-index: 1;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 460px;
+  height: 325px;
+  padding: 30px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  background: #535471;
+  transform: scale(1.5);
+  transition: all ease-out 0.2s;
+}
+
+.content-active {
+  transform: scale(1);
+}
+
+.form {
+  position: relative;
+  width: 396px;
+  height: 261px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.form.form-d {
+  justify-content: center;
+}
+.form-header {
+  display: flex;
+  justify-content: flex-start;
+  font-family: "Luckiest Guy", serif;
+  color: #fff;
+}
+.form-wrap {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 396px;
+}
+.form-wrap__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  font-size: 14px;
+  color: #fff;
+}
+.form-wrap__icon:focus + .form-wrap__tooltip {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
+.form-wrap__tooltip {
+  position: absolute;
+  width: 100px;
+  height: 50px;
+  background: #535471;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  color: #fff;
+  top: 105px;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+.form-wrap__tooltip::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 35%;
+  border-style: solid;
+  border-width: 0 8px 8px 8px;
+  border-color: transparent transparent #fff transparent;
+}
+.form-wrap__name {
+  width: 200px;
+  height: 40px;
+  border: 1px solid #7879a6;
+  border-radius: 5px;
+  color: #000;
+  font-size: 24px;
+  font-family: "Segoe UI", serif;
+  font-weight: 700;
+  padding: 5px 5px 10px 10px;
+  text-shadow: 1px 1px 0 #7e80b6;
+  box-shadow: inset 3px 3px 5px #333346, inset -3px -3px 5px #6e7098;
+  transition: all 0.2s ease-in-out;
+}
+.form-wrap__name:focus {
+  box-shadow: inset 1px 1px 1px #272734, inset -1px -1px 1px #616285;
+}
+.form-wrap__name.desc {
+  width: 396px;
+  text-shadow: none;
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #fff;
+  padding: 0;
+  resize: none;
+  font-family: "Segoe UI Light", serif;
+  font-size: 20px;
+  color: #fff;
+}
+.form-wrap__account {
+  color: #f6ae09;
+  text-shadow: 1px 1px 1px #000000;
+  font-weight: 600;
+  font-size: 24px;
+  font-family: "Segoe UI Light", serif;
+  cursor: pointer;
+}
+.form-wrap .select {
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  text-align: center;
+}
+.form-wrap__label {
+  display: flex;
+  justify-content: center;
+  min-width: 70px;
+  min-height: 40px;
+  font-family: "Segoe UI", serif;
+  font-size: 24px;
+  color: #fff;
+}
+.form-wrap__label.text {
+  justify-content: flex-start;
+}
+.form-wrap.flex-s {
+  justify-content: flex-start;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+.form-button {
+  font-family: "Luckiest Guy", serif;
+  font-size: 24px;
+  color: #fff;
+  padding: 10px 20px;
+  background: #535471;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.form-button:hover {
+  box-shadow: inset 2px 2px 3px 3px #7879a9, inset -2px -2px 3px 3px #333346;
+}
+
+.w {
+  width: 380px;
+}
+
+.mr {
+  margin: 0 15px 0;
+}
+
+.ml {
+  margin-left: 14px;
+}
+
+.mra {
+  margin-right: auto;
+}
+
+.b-r {
+  margin-right: 12px;
+}
+
+.header {
+  font-family: "Luckiest Guy", serif;
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.dropdown {
+  position: relative;
+  min-width: 50px;
+}
+.dropdown-link {
+  color: #fff;
+}
+
+.menu {
+  position: absolute;
+  right: -20px;
+  top: 50px;
+  display: block;
+  width: 240px;
+  padding: 0.2em 0.5em;
+  background: #323741;
+  border: 1px solid #363a43;
+  border-radius: 0.5em;
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+  color: #fff;
+  opacity: 0;
+  transform-origin: top;
+  transform: scale(1, 0);
+  z-index: 1;
+  transition: all ease-out 0.2s;
+}
+
+.menu-open {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+
+.menu li {
+  margin: 0.3em 0;
+  padding-left: 10px;
+  font-family: "Luckiest Guy", serif;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.menu li:hover {
+  background: #000;
+}
+
+.active {
+  background: #23242a;
+}
+
+.add-btn-acc {
+  font-family: "Segoe UI", serif;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dropdown-acc {
+  position: relative;
+  min-width: 50px;
+  height: 40px;
+  color: #fff;
+}
+.dropdown-acc-link {
+  color: #fff;
+}
+
+.menu-acc {
+  position: absolute;
+  right: 0;
+  top: 35px;
+  display: block;
+  min-width: 150px;
+  padding: 5px;
+  background: #525371;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  color: #fff;
+  opacity: 0;
+  transform-origin: top;
+  transform: scale(1, 0);
+  z-index: 1;
+  transition: all ease-out 0.2s;
+}
+
+.menu-open-acc {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+
+.menu-acc li {
+  padding: 0 10px;
+  font-family: "Luckiest Guy", serif;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.menu-acc li:hover {
+  background: #37384b;
+}
+
 .money-header {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+body {
+  background: #525371;
+}
+
 .main-page {
   display: flex;
-  width: 100%;
-  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
   background: #545571;
 }
 
@@ -175,8 +483,8 @@ h1 {
   height: 104px;
   background: #f3eca8;
   font-size: 64px;
-  border-top-right-radius: 50px;
-  border-bottom-right-radius: 50px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
   font-family: "Luckiest Guy", serif;
 }
 
@@ -195,8 +503,8 @@ h1 {
   width: 104px;
   height: 182px;
   background: #f3eca8;
-  border-bottom-right-radius: 50px;
-  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 .sideBar__settings {
   height: 40px;
@@ -208,7 +516,7 @@ h1 {
   flex-wrap: wrap;
   gap: 17px;
   width: 1273px;
-  min-height: 857px;
+  height: 857px;
   padding: 20px;
   background: #a9aaab;
 }
@@ -228,10 +536,11 @@ h1 {
   border: 1px solid #000;
   border-radius: 10px;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.2s;
 }
 .add-btn:hover {
   background: #f3eca8;
+  box-shadow: inset 0 0 2px 5px #000;
 }
 
 .exp-inc__cash {
@@ -296,7 +605,7 @@ h1 {
   margin-right: 25px;
 }
 .accounts-list__item-value {
-  margin-left: auto;
+  margin: 0 10px 0 auto;
 }
 
 .structure-wrap {
@@ -313,6 +622,12 @@ h1 {
 .structure-detail {
   font-size: 20px;
   color: #8d808d;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.structure-detail:hover {
+  color: #000;
+  font-weight: 900;
 }
 .structure-list {
   display: flex;
@@ -348,6 +663,93 @@ h1 {
 .structure-list__item-desc {
   font-size: 19px;
   margin-left: auto;
+}
+
+.operation {
+  width: 509px;
+  height: 857px;
+  padding: 20px;
+  background: #a9aaab;
+  margin-left: 17px;
+}
+.operation-list {
+  background: #d7d7d8;
+  height: 815px;
+}
+.operation-list__item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 30px;
+  font-weight: 800;
+  color: #1a8337;
+  padding: 5px 15px;
+  border-bottom: 1px solid #838383;
+  font-family: "Segoe UI", Arial, serif;
+  text-shadow: 1px 1px 1px #032603;
+}
+.operation-list__item.ex {
+  color: #ee443d;
+  text-shadow: 1px 1px 1px #4b0303;
+}
+.operation-list__item_description {
+  color: #000;
+  font-weight: normal;
+  text-shadow: none;
+}
+
+.income {
+  display: flex;
+  margin: 104px 0 0 104px;
+}
+.income-container {
+  width: 1273px;
+  height: 857px;
+  background: #d7d7d8;
+  border: 20px solid #a9aaab;
+  padding: 50px;
+}
+.income-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.income-nav__item {
+  font-size: 30px;
+  font-weight: 900;
+  font-family: "Luckiest Guy", serif;
+  cursor: pointer;
+}
+.income-nav__item.big {
+  font-size: 60px;
+  cursor: text;
+}
+.income-grid {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 60px;
+  row-gap: 23px;
+  padding: 23px 36px 50px;
+}
+.income-grid-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 107px;
+}
+.income-grid__item {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.income-grid__item-name {
+  font-size: 20px;
+  font-family: "Segoe UI", serif;
+}
+
+.cursor-none {
+  cursor: none;
 }
 
 /*# sourceMappingURL=main.css.map */
